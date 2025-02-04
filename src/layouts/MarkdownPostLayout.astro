@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+
+interface frontmatter {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+  image: {
+    url: string;
+    alt: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<h1>{frontmatter.title}</h1>
+<p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+<p><em>{frontmatter.description}</em></p>
+<p>Written by: {frontmatter.author}</p>
+<Image src={frontmatter.image.url} inferSize={true} alt={frontmatter.image.alt} />
+<slot />
