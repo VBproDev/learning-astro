@@ -22,22 +22,22 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <style is:global>
-    .img {
+    .cover {
       display: flex;
       justify-content: center;
-      width: 160ch;
-      height: 80ch;
     }
   </style>
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
   <p><em>{frontmatter.description}</em></p>
   <p>Written by: {frontmatter.author}</p>
-  <div class="img">
+  <div class="cover">
     <Image
+      layout="responsive"
+      inferSize
       src={frontmatter.image.url}
-      inferSize={true}
       loading="eager"
       alt={frontmatter.image.alt}
+      class="cover"
     />
   </div>
   <slot />
