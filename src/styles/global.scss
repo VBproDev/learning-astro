@@ -1,0 +1,98 @@
+@use 'variables' as *;
+
+@mixin nav-background {
+  background-color: $nav-bg;
+}
+
+html {
+  background-color: $light-bg;
+  font-family: sans-serif;
+
+  &.dark {
+    background-color: $dark-bg;
+    color: $text-light;
+
+    .nav-links {
+      a {
+        color: $text-light;
+      }
+    }
+  }
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80ch;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+}
+
+/* nav styles */
+
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+
+  .line {
+    @include nav-background;
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.nav-links {
+  @include nav-background;
+  width: 100%;
+  top: 5rem;
+  left: 48px;
+  display: none;
+  margin: 0;
+
+  a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  a:hover,
+  a:focus {
+    @include nav-background
+  }
+
+  @media screen and (min-width: $mobile-breakpoint) {
+    margin-left: 5em;
+    display: block;
+    position: static;
+    width: auto;
+    background: none;
+
+    a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  }
+}
+
+.expanded {
+  display: unset;
+}
