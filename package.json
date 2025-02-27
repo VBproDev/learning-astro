@@ -12,6 +12,8 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/rss": "^4.0.11",
     "astro": "^5.2.5",
+    "astro-purgecss": "^5.2.0",
+    "purgecss": "^7.0.2",
     "sass": "^1.84.0",
     "typescript": "^5.7.3"
   }

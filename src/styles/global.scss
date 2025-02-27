@@ -1,21 +1,33 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
-@mixin nav-background {
-  background-color: $nav-bg;
+// Some unused styles for PurgeCSS to purge
+.useless-styles1 {
+  color: red;
 }
+.useless-styles2 {
+  color: green;
+}
+.useless-style3 {
+  color: blue;
+}
+.useless-style4 {
+  color: yellow;
+}
+// unused styles end
 
 html {
   background-color: $light-bg;
   font-family: sans-serif;
+}
 
-  &.dark {
-    background-color: $dark-bg;
-    color: $text-light;
+html.dark {
+  background-color: $dark-bg;
+  color: $text-light;
 
-    .nav-links {
-      a {
-        color: $text-light;
-      }
+  .nav-links {
+    a {
+      color: $text-light;
     }
   }
 }
@@ -76,7 +88,7 @@ h1 {
 
   a:hover,
   a:focus {
-    @include nav-background
+    @include nav-background;
   }
 
   @media screen and (min-width: $mobile-breakpoint) {
